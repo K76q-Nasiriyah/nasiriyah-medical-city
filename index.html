@@ -1,1 +1,62 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>مدينة الطب - تبارك حسين</title><style>*{box-sizing:border-box;font-family:Arial}body{margin:0;background:#f0f8ff;padding:10px}.h{background:linear-gradient(90deg,#0077b6,#00b4d8);color:#fff;padding:20px;border-radius:20px;text-align:center}.card{background:#fff;padding:15px;border-radius:15px;margin-top:10px;box-shadow:0 4px 12px rgba(0,0,0,.1)}input{width:100%;padding:11px;margin:5px 0;border:1.5px solid #ddd;border-radius:10px}button{width:100%;padding:12px;background:#0096c7;color:#fff;border:none;border-radius:10px;font-weight:bold} .stat{display:flex;justify-content:space-between;padding:8px;background:#e8f6ff;border-radius:8px;margin:4px 0}.ok{background:#d8f3dc;padding:10px;border-radius:10px;text-align:center;font-weight:bold;color:#1b4332;margin-top:8px}</style></head><body><div class="h"><h2 style="margin:0">🏥 مدينة الطب - ذي قار</h2><p>Solar 100MW - Nasiriyah</p><small>Developer: Tabarak Hussein Blasm</small></div><div class="card"><input id="id" placeholder="ID المريض"><input id="name" placeholder="الاسم"><input id="age" placeholder="العمر"><input id="dis" placeholder="المرض"><input id="doc" placeholder="الطبيب"><input id="pow" type="number" placeholder="الطاقة KW"><button onclick="add()">حفظ + حساب</button></div><div class="card"><div class="stat"><span>المرضى</span><b id="c">0</b></div><div class="stat"><span>المطلوب</span><b id="n">0 KW</b></div><div class="stat"><span>المحطة</span><b>100,000 KW</b></div><div class="stat"><span>المتبقي</span><b id="r">100,000 KW</b></div><div id="s" class="ok">✅ SOLAR IS ENOUGH</div><div id="list"></div></div><script>let t=0,ps=[];function add(){let id=document.getElementById('id').value;let name=document.getElementById('name').value;let age=document.getElementById('age').value;let dis=document.getElementById('dis').value;let doc=document.getElementById('doc').value;let p=parseFloat(document.getElementById('pow').value)||0;if(!name)return alert('اكتبي الاسم');ps.push({id,name,age,dis,doc,p});t+=p;document.getElementById('c').innerText=ps.length;document.getElementById('n').innerText=t+' KW';document.getElementById('r').innerText=(100000-t)+' KW';document.getElementById('s').innerHTML=t<=100000?'✅ SOLAR IS ENOUGH - فائض '+(100000-t)+' KW':'❌ طاقة غير كافية';let h='';ps.forEach((x,i)=>{h+=`<div style="padding:6px;border-right:3px solid #0096c7;margin:5px 0;background:#f8f9fa;border-radius:6px;font-size:13px">${i+1}. ${x.id} | ${x.name} | ${x.age} | ${x.dis} | ${x.doc} | ${x.p} KW</div>`});document.getElementById('list').innerHTML=h;}</script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدينة الطب - الناصرية | Nasiriyah Medical City</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma}
+body{background:#f5f7fb;color:#1a1a1a}
+.header{background:linear-gradient(135deg,#0b3d91,#1e88e5);color:#fff;padding:25px;text-align:center}
+.header h1{font-size:28px;margin-bottom:5px}
+.header p{opacity:.9}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;padding:20px}
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,.08);border-right:5px solid #1e88e5}
+.card h3{font-size:14px;color:#666;margin-bottom:8px}
+.card .num{font-size:28px;font-weight:bold;color:#0b3d91}
+.card.green{border-color:#2e7d32}
+.card.green .num{color:#2e7d32}
+.card.orange{border-color:#ef6c00}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;padding:0 20px 20px}
+.dept{background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.dept h4{color:#0b3d91;margin-bottom:10px}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;color:#fff;margin:2px}
+.badge.on{background:#2e7d32}
+.badge.off{background:#c62828}
+.badge.solar{background:#ef6c00}
+.solar-box{background:#fff3e0;border:2px dashed #ef6c00;border-radius:16px;padding:20px;margin:20px;text-align:center}
+.footer{text-align:center;padding:20px;color:#888;font-size:13px}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🏥 مدينة الطب - الناصرية</h1>
+<p>Nasiriyah Medical City - Dhi Qar | نظام إدارة الطاقة والعمليات</p>
+<p style="margin-top:8px;font-size:13px">Designed by Tabarak K76Q | Biomedical Engineer</p>
+</div>
+
+<div class="stats">
+<div class="card"><h3>إجمالي الأسرّة</h3><div class="num">600 سرير</div></div>
+<div class="card green"><h3>الطاقة الشمسية المتاحة</h3><div class="num">850 kW</div></div>
+<div class="card orange"><h3>الحمل المطلوب</h3><div class="num">1200 kW</div></div>
+<div class="card"><h3>نسبة التغطية</h3><div class="num">70%</div></div>
+</div>
+
+<div class="solar-box">
+<h3>☀️ نظام الطاقة الشمسية المستدام</h3>
+<p style="margin:10px 0">الحساب: 600 سرير × 2kW = 1200kW مطلوب | المتاح حالياً يغطي 70% | نحتاج اضافة 350kW</p>
+<span class="badge on">On-Grid</span><span class="badge solar">Off-Grid Ready</span><span class="badge on">Battery Backup</span>
+</div>
+
+<div class="grid">
+<div class="dept"><h4>🏨 قسم الطوارئ</h4><span class="badge on">يعمل</span><span class="badge solar">شمسي 120kW</span><p style="margin-top:8px;font-size:13px;color:#555">50 سرير - استهلاك 100kW</p></div>
+<div class="dept"><h4>❤️ العناية المركزة ICU</h4><span class="badge on">يعمل</span><span class="badge off">ديزل احتياطي</span><p style="margin-top:8px;font-size:13px;color:#555">40 سرير - استهلاك 120kW - أولوية قصوى</p></div>
+<div class="dept"><h4>🔬 المختبرات</h4><span class="badge on">يعمل</span><span class="badge solar">شمسي 80kW</span><p style="margin-top:8px;font-size:13px;color:#555">استهلاك 80kW - أجهزة تحليل</p></div>
+<div class="dept"><h4>👶 النسائية والأطفال</h4><span class="badge on">يعمل</span><span class="badge solar">شمسي 150kW</span><p style="margin-top:8px;font-size:13px;color:#555">120 سرير - استهلاك 180kW</p></div>
+<div class="dept"><h4>🧠 العمليات</h4><span class="badge on">يعمل</span><span class="badge off">طاقة مستقرة مطلوبة</span><p style="margin-top:8px;font-size:13px;color:#555">8 صالات - 200kW - UPS ضروري</p></div>
+<div class="dept"><h4>💊 الصيدلية والمخازن</h4><span class="badge on">يعمل</span><span class="badge solar">شمسي 40kW</span><p style="margin-top:8px;font-size:13px;color:#555">تبريد 24/7 - 60kW</p></div>
+</div>
+
+<div class="footer">© 2026 Nasiriyah Medical City - Project by Tabarak | Dhi Qar Governorate, Iraq</div>
+</body>
+</html>
